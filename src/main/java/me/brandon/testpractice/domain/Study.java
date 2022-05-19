@@ -1,4 +1,4 @@
-package me.brandon.testpractice;
+package me.brandon.testpractice.domain;
 
 public class Study {
     private StudyStatus status = StudyStatus.DRAFT;
@@ -45,5 +45,11 @@ public class Study {
         return "Study{" +
                 "name='" + name + '\'' +
                 '}';
+    }
+
+    public void setOwnerId(Long memberId) {
+    }
+
+    public void open() {
     }
 }

@@ -1,5 +1,7 @@
 package me.brandon.testpractice;
 
+import me.brandon.testpractice.domain.Study;
+import me.brandon.testpractice.domain.StudyStatus;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledOnJre;
 import org.junit.jupiter.api.condition.EnabledOnOs;
