@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class StudyController {
 
-    final StudyRepository repository;
+    private final StudyRepository repository;
 
     @GetMapping("/study/{id}")
     public Study getStudy(@PathVariable Long id) {

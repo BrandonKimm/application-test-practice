@@ -1,16 +1,32 @@
 package me.brandon.testpractice.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Study {
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private StudyStatus status = StudyStatus.DRAFT;
 
-    private int limit;
+    private int limitNumber;
     private String name;
 
     public Study(int limit) {
         if(limit < 0){
             throw new IllegalArgumentException("limit 은 0보다 커야한다.");
         }
-        this.limit = limit;
+        this.limitNumber = limit;
     }
 
 
@@ -23,16 +39,16 @@ public class Study {
     }
 
     public Study(int limit, String name) {
-        this.limit = limit;
+        this.limitNumber = limit;
         this.name = name;
     }
 
     public int getLimit() {
-        return limit;
+        return limitNumber;
     }
 
     public void setLimit(int limit) {
-        this.limit = limit;
+        this.limitNumber = limit;
     }
 
     public StudyStatus getStatus() {

@@ -4,6 +4,7 @@ import me.brandon.testpractice.domain.Member;
 import me.brandon.testpractice.domain.Study;
 import me.brandon.testpractice.domain.Study;
 import me.brandon.testpractice.member.MemberService;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 

@@ -9,19 +9,25 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 
 
+@SpringBootTest
 @ExtendWith(MockitoExtension.class)
+@ActiveProfiles("test")
 public class StudyServiceTest {
 
     @Mock
     MemberService memberService;
 
-    @Mock
+//    @Mock StudyRepository studyRepository;
+    @Autowired
     StudyRepository studyRepository;
 
     @Test
@@ -37,7 +43,7 @@ public class StudyServiceTest {
         System.out.println(memberService.findById(1L).get().getEmail());
 
         Study study = new Study(10, "java");
-        when(studyRepository.save(study)).thenReturn(study);
+        //when(studyRepository.save(study)).thenReturn(study));
 
         //Mockito.when(memberService.findById(1L)).thenThrow(new IllegalArgumentException());
         //Assertions.assertThrows(IllegalArgumentException.class, () -> memberService.validate(1L));
@@ -46,7 +52,7 @@ public class StudyServiceTest {
 
 
         studyService.createNewStudy(1L, study);
-        verify(memberService, times(2)).notify(study);
+        verify(memberService, times(1)).notify(study);
         verify(memberService, never()).validate(any());
 
 
